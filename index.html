@@ -12,8 +12,11 @@
 	
 	<main>
 		<div class='menu'>
+			<div class='menuItemContainer'>
+			<button id=addItemBtn>+ Add task</button>
 			<button id='taskBtn'>Show all tasks</button>
-			<button id='foldersBtn'>Folders</button>
+			<button id='foldersBtn'>+ Add Folder</button>
+		</div>
 		</div>
 
 		<div class='display'>  
@@ -26,16 +29,29 @@
 					<div class='viewDetails'>view details</div>
 				</div>
 					<div class='rightContainer'>
-					<div class='folderRef'>Folder</div>
-					<div class='label'>Label</div>
-					<div class='markComplete'>Mark complete</div>
-					<div class='delete'>Delete</div>
+					
+					<div class='folderRef'>Folder:
+						<div id='folder'>General</div>
+					</div>
+
+					<div class='label'>Label:
+						<div id='label'>Chores</div>
+					</div>
+
+					<div class='markComplete'>Mark complete:
+						<div class='completeBTN'>X</div>
+					</div>
+
+					<div class='delete'>Delete:
+						<div class ='deleteBTN'>X</div>
+					</div>
+
 				</div>
 		
 		</div>     <!-- DOM stuff can append to 'display'-->
 	
 	</main>
 	
-
+<script src='index.js'></script>
 </body>
 </html>

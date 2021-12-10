@@ -4,13 +4,16 @@ body{
 }
 button{
 	border:none;
-	background-color: rgb(245 245 245);;
-	font-size: 15px;
-	font-family:monospace;
-		margin:2%;
+	background-color: rgb(241 239 239);
+		margin:4%;
+		height:60px;
+		width:175px;
+
 }
 	button:hover{
-		box-shadow: 1px 2px 1px gray;
+		border-radius: 20px;
+		box-shadow: 0px 1px 0px rgb(255, 233, 233);
+		background-color: rgb(251 236 236);
 	}
 
 									/*Main elements navbar, menubar, display area*/
@@ -37,15 +40,21 @@ main{
 }
 
 		.menu{
-			display:flex;
-			flex-direction: column;
-			align-items: center;
-			justify-content: center;
 			height:1000px;
 			width:250px;
 				background-color: rgb(245 245 245);
 
 		}
+			.menuItemContainer{
+				height:200px;
+				width:200px;
+				margin-top:100px;
+					display:flex;
+					flex-direction: column;
+					align-items: center;
+					justify-content:space-around;
+
+			}
 
 		.display{
 			background-color: white;
@@ -90,6 +99,9 @@ main{
 				font-family: Arial, sans-serif;
 
 		}
+			.taskItem:hover{
+				box-shadow: 0px 1px 7px gray;
+			}
 					.leftContainer{
 						display:flex;
 						flex-direction: column;
@@ -111,19 +123,10 @@ main{
 							justify-content: space-between;
 
 					}
-								.folderRef{
-									
-								}
-								.label{
-									height:100px;
-								}
-								.markComplete{
-									font-size:15px;
-									
-								}
-								
-								.delete{
-									font-size:15px;
-									
-								}
+						.rightContainer > *{
+							display:flex;
+							flex-direction: column;
+							justify-content: center;
+							align-items: center;
+
 								
