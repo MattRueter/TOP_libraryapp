@@ -1,0 +1,129 @@
+body{
+	background-color: rgb(225, 243, 241);
+	margin: -1%;
+}
+button{
+	border:none;
+	background-color: rgb(245 245 245);;
+	font-size: 15px;
+	font-family:monospace;
+		margin:2%;
+}
+	button:hover{
+		box-shadow: 1px 2px 1px gray;
+	}
+
+									/*Main elements navbar, menubar, display area*/
+.nav{
+	height:60px;
+	width:100%;
+	padding:1%;
+	background-color:rgb(236, 55, 55);	
+		display:flex;
+		justify-content: center;
+		align-items: center;
+}
+		.navItems{
+			border:1px solid black;
+			padding:5%;
+			color:white;
+			font-size: xx-large;
+		}
+
+
+main{
+	display:flex;
+
+}
+
+		.menu{
+			display:flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+			height:1000px;
+			width:250px;
+				background-color: rgb(245 245 245);
+
+		}
+
+		.display{
+			background-color: white;
+			height:1000px;
+			width:100%;
+				display:flex;
+				
+
+		}
+		.displayGenericMessage{
+			background-color: white;
+			height:1000px;
+			width:100%;
+				display:flex;
+				justify-content: center;
+				align-items: center;
+
+		}
+					.genericMessage{
+						border: 2px dotted rgb(189, 142, 150);
+						box-shadow: 1px 2px 1px rgb(236, 55, 55);
+							height:400px;
+							width:400px;
+						font-size:xx-large;
+					}
+
+
+		/*individual task styles*/
+		.taskItem{
+			display:flex;
+			flex-wrap:nowrap;
+			justify-content: space-between;
+				border:1px solid lightgray;
+				border-radius: 10px;
+				background-color: #ffffff;
+				box-shadow: 0px 1px 2px gray;
+			height:50px;
+			width:750px;
+			margin:1%;
+			padding:1%;
+				font-size: 20px;
+				font-family: Arial, sans-serif;
+
+		}
+					.leftContainer{
+						display:flex;
+						flex-direction: column;
+						justify-content: space-between;
+
+					}
+								.title{
+									font-size: 30px;
+									
+
+								}
+								.viewDetails{
+								
+								}
+					.rightContainer{
+						width:400px;
+							display:flex;
+							flex-direction: row;
+							justify-content: space-between;
+
+					}
+								.folderRef{
+									
+								}
+								.label{
+									height:100px;
+								}
+								.markComplete{
+									font-size:15px;
+									
+								}
+								
+								.delete{
+									font-size:15px;
+									
+								}
+								
