@@ -16,7 +16,18 @@ button{
 		background-color: rgb(251 236 236);
 	}
 
-									/*Main elements navbar, menubar, display area*/
+	input{
+		border: 1px solid lightgray;
+		border-radius: 5px;
+			font-family:monospace;
+	}
+
+	.boxInput{
+		width:100px;
+		font-size: larger;
+		
+	}
+									/*Main elements navbar, menubar, display area* (always displayed)*/
 .nav{
 	height:60px;
 	width:100%;
@@ -88,9 +99,9 @@ main{
 			border: 1px solid lightgray;
 			border-radius: 15px;
 			background-color: #ffffff;
-			box-shadow: 0px 1px 2px gray;
-				height:500px;
-				width:400px;
+			box-shadow: 0px 2px 5px gray;
+				height:550px;
+				width:475px;
 			margin-left:20%;
 			margin-top: 5%;
 			padding:2%;
@@ -104,9 +115,14 @@ main{
 							justify-content: space-between;
 							
 						}
-						.comments{
+						#title{
+							height:50px;
+							font-size: larger;
+						}
+						#comments{
 							height:300px;
 							width:200px;
+							font-size: large;
 						}
 						.rightContainerADD{
 							border-left:1px solid black;
@@ -121,6 +137,10 @@ main{
 									.bottomBtnContainer{
 
 									}
+										.addItemBoxBtn{
+											width: 60px;
+											border-radius: 15px;
+										}
 									.topBtnContainer > *{
 										margin:10%;
 										padding:5%;
@@ -179,5 +199,3 @@ main{
 							flex-direction: column;
 							justify-content: center;
 							align-items: center;
-
-								
