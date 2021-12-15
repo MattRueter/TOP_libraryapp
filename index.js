@@ -3,7 +3,7 @@ let taskItemArray = [
 	{title:'Food Shopping', folder:'General', priority:'medium',deadline:'today', completed:'',notes:'Take Victoria with you.'}
 ];
 
-function taskFactory (title,folder,priority,label,deadline,completed,notes) {
+function taskConstructor (title,folder,priority,label,deadline,completed,notes) {
 	this.title = title;
 	this.folder = folder;
 	this.priority = priority;
