@@ -1,6 +1,6 @@
 import _ from 'lodash';
 
-console.log('Saying hello from index.js');
+console.log('running with build from config');
 
 let taskItemArray = [
 	{title:'Food Shopping', folder:'General', priority:'medium',deadline:'today', completed:'',notes:'Take Victoria with you.'}
