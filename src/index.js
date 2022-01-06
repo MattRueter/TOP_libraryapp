@@ -1,6 +1,7 @@
 import _ from 'lodash';
+import './styles.css';
 
-console.log('running with build from config');
+
 
 let taskItemArray = [
 	{title:'Food Shopping', folder:'General', priority:'medium',deadline:'today', completed:'',notes:'Take Victoria with you.'}
