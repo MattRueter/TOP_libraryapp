@@ -1,5 +1,6 @@
 import _ from 'lodash';
 import './styles.css';
+import './DOM.js';
 
 
 
