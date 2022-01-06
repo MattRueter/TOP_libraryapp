@@ -1,18 +1,16 @@
-let taskItemArray = [
-	{itemTitle:'Food Shopping', folder:'General', priority:'medium',deadline:'today', completed:'',notes:'Take Victoria with you.'},
-	{itemTitle: 'Cook dinner', folder: 'General', priority:'medium', deadline:'today', completed: '', notes:'make 4 servings'}
-];
+import {taskItemArray} from './index.js';
 
 const display = document.querySelector('.display');
 
 
-//This creates an task item (Could probably be much simpler).
+
+//When the user clicks 'show all tasks' this calls () which loops over
+//taskItemArray anc creates individual cards per item on master list.
+
 const showTasks = document.querySelector('#taskBtn');
 	showTasks.addEventListener('click', () =>{
 		showAllTasks();
 	});
-
-
 
 function showAllTasks(){
 	taskItemArray.forEach(item => {
@@ -21,6 +19,9 @@ function showAllTasks(){
 	const taskItem = document.createElement('div');
 		taskItem.classList.add('taskItem');
 		display.appendChild(taskItem);
+		taskItem.addEventListener('click', () => {
+			console.log('Clicked!');
+		});
 
 			const leftContainer = document.createElement('div');
 			leftContainer.classList.add('.leftContainer');
