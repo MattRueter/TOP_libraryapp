@@ -3,11 +3,6 @@ import './styles.css';
 import './DOM.js';
 
 
-
-let taskItemArray = [
-	{title:'Food Shopping', folder:'General', priority:'medium',deadline:'today', completed:'',notes:'Take Victoria with you.'}
-];
-
 function taskConstructor (title,folder,priority,label,deadline,completed,notes) {
 	this.title = title;
 	this.folder = folder;
@@ -22,9 +17,10 @@ function taskConstructor (title,folder,priority,label,deadline,completed,notes) 
 }
 
 function showTask(currentTask){
-	const task =document.querySelector('.taskItem');
-	const title=document.querySelector('.title');
+	const task  = document.querySelector('.taskItem');
+	const title = document.querySelector('.title');
 
 	title.textContent=currentTask.title;
 
 }
+
