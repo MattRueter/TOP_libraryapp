@@ -11,37 +11,59 @@ let toDoList = [
 
 ];
 
-function taskConstructor (itemTitle,folder,priority,label,deadline,completed,notes) {
+function taskConstructor (itemTitle,folder,priority,deadline,completed,notes) {
 	this.itemTitle = itemTitle;
 	this.folder = folder;
 	this.priority = priority;
-	this.label = label;
 	this.deadline = deadline;
 	this.completed = completed;
 	this.notes = notes;
 
-	toDoList.push(this);
+	this.push = function(){
+	
+		toDoList.push(this);
+	}
 
 }
 
+//listens for add button / opens add form / takes input information and creates new object 
+//& sends it to 'toDoList' array.
 const addTaskBtn = document.querySelector('#addItemBtn');
 	addTaskBtn.addEventListener('click', () => {
 		
+	//makes add form box visible
 		const addItemBox = document.querySelector('.addItemBox');
 			addItemBox.classList.add('addItemBoxShow');
 			const addItemBoxShow = document.querySelector('.addItemBoxShow');
-
+	
+	//hides add form box
 		const cancelBtn = document.querySelector('#cancel');
 			cancelBtn.addEventListener('click', () => {       
 				addItemBoxShow.classList.remove('addItemBoxShow');
-				
-					
-				
-				
-			})
+			});
 
-		//let task = new taskConstructor('Lunch','Nutrition','HIGH', 'today',','');
-		//console.log(toDoList);
-	})
+});
 
 
+//sends user input into array of to do items
+const addBtn = document.querySelector('#add');
+	addBtn.addEventListener('click', () => {
+
+	//declare input fields for later use
+	const title = document.querySelector('#title');
+	const folder = document.querySelector('#folder');
+	const priority = document.querySelector('#priority');
+	const deadline = document.querySelector('#deadline');
+	const comments = document.querySelector('#comments');
+	
+	
+		let task = new taskConstructor(title.value, folder.value, priority.value, deadline.value, '', comments.value);
+			task.push();
+
+				title.value = '';
+				folder.value = '';
+				priority.value ='';
+				deadline.value = '';
+				comments.value = '';
+				
+	});
