@@ -1,16 +1,18 @@
 import _ from 'lodash';
 import './styles.css';
-export {taskItemArray};
+export {toDoList};
 import './DOM.js';
 
 
-let taskItemArray = [
+let toDoList = [
 	{itemTitle:'Food Shopping', folder:'General', priority:'medium',deadline:'today', completed:'',notes:'Take Victoria with you.'},
-	{itemTitle: 'Cook dinner', folder: 'General', priority:'medium', deadline:'today', completed: '', notes:'make 4 servings'}
+	{itemTitle:'Cook dinner', folder: 'General', priority:'medium', deadline:'today', completed: '', notes:'make 4 servings'},
+	{itemTitle:'Lunch', folder:'Nutrition', priority:'high', deadline:'today', completed:'',notes:''}
+
 ];
 
-function taskConstructor (title,folder,priority,label,deadline,completed,notes) {
-	this.title = title;
+function taskConstructor (itemTitle,folder,priority,label,deadline,completed,notes) {
+	this.itemTitle = itemTitle;
 	this.folder = folder;
 	this.priority = priority;
 	this.label = label;
@@ -18,15 +20,28 @@ function taskConstructor (title,folder,priority,label,deadline,completed,notes) 
 	this.completed = completed;
 	this.notes = notes;
 
-	taskItemArray.push(this);
+	toDoList.push(this);
 
 }
 
-function showTask(currentTask){
-	const task  = document.querySelector('.taskItem');
-	const title = document.querySelector('.title');
+const addTaskBtn = document.querySelector('#addItemBtn');
+	addTaskBtn.addEventListener('click', () => {
+		
+		const addItemBox = document.querySelector('.addItemBox');
+			addItemBox.classList.add('addItemBoxShow');
+			const addItemBoxShow = document.querySelector('.addItemBoxShow');
 
-	title.textContent=currentTask.title;
+		const cancelBtn = document.querySelector('#cancel');
+			cancelBtn.addEventListener('click', () => {       
+				addItemBoxShow.classList.remove('addItemBoxShow');
+				
+					
+				
+				
+			})
 
-}
+		//let task = new taskConstructor('Lunch','Nutrition','HIGH', 'today',','');
+		//console.log(toDoList);
+	})
+
 
