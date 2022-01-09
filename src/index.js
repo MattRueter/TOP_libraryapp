@@ -1,8 +1,8 @@
 import _ from 'lodash';
 import './styles.css';
-export {toDoList};
 import './DOM.js';
-
+import {showAllTasks} from './DOM.js';
+export {toDoList};
 
 let toDoList = [
 	{itemTitle:'Food Shopping', folder:'General', priority:'medium',deadline:'today', completed:'',notes:'Take Victoria with you.'},
@@ -66,4 +66,6 @@ const addBtn = document.querySelector('#add');
 				deadline.value = '';
 				comments.value = '';
 				
+				
+				showAllTasks();
 	});

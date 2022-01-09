@@ -1,4 +1,5 @@
 import {toDoList} from './index.js';
+export {showAllTasks};
 
 const display = document.querySelector('.display');
 
@@ -9,18 +10,22 @@ const display = document.querySelector('.display');
 
 const showTasks = document.querySelector('#taskBtn');
 	showTasks.addEventListener('click', () =>{
+
 		showAllTasks();
+
 	});
 
 function showAllTasks(){
+	
+	clearTasks();
+
 	toDoList.forEach(item => {
 		
-	
 	const taskItem = document.createElement('div');
 		taskItem.classList.add('taskItem');
 		display.appendChild(taskItem);
 		taskItem.addEventListener('click', () => {
-			console.log('Clicked!');
+			console.log('Clicked!'); //Change this to open up details of task.
 		});
 
 			const leftContainer = document.createElement('div');
@@ -65,3 +70,9 @@ function showAllTasks(){
 				deleteBtn.textContent = 'X';
 	});
 }	
+
+function clearTasks () {
+	while(display.firstElementChild.nextElementSibling){  //firstElementChild is ADD ITEM FORM as it is always there though hidden.
+		display.removeChild(display.firstElementChild.nextElementSibling);
+	}
+}

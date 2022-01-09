@@ -1,11 +1,11 @@
 body{
-	background-color: #dfede8;
+	background-color: #ecf7f3;
 	margin: 0%;
 }
 button{
 	border:none;
 	border-radius: 20px;
-	background-color: rgb(241 239 239);
+	background-color: #bfcbc6;
 		margin:4%;
 		height:60px;
 		width:175px;
@@ -13,8 +13,8 @@ button{
 }
 	button:hover{
 		border-radius: 20px;
-		box-shadow: 0px 1px 0px #044a45;
-		background-color: #baf3ef;
+		box-shadow: 0px 1px 0px #ecf7f3;
+		background-color: #ecf7f3;
 	}
 
 	input{
@@ -58,7 +58,7 @@ main{
 			height:1000px;
 			width:250px;
 			border-right: 1px solid #4e908b;
-				background-color: #b4d5d2;
+				background-color: #f6fffc;
 
 		}
 			.menuItemContainer{
@@ -73,7 +73,7 @@ main{
 			}
 
 	.display{
-		background-color: #dfede8;
+		background-color: #ecf7f3;
 		height:1000px;
 		width:100%;
 			display:flex;
@@ -175,7 +175,7 @@ and 'modify item box'*/
 
 		}	
 			.taskItem:hover{
-				box-shadow: 0px 1px 7px #46bd92;
+				box-shadow: 0px 1px 7px #b0d1c5;
 			}
 					.leftContainer{
 						display:flex;
@@ -202,14 +202,14 @@ and 'modify item box'*/
 							align-items: center;
 						}
 						.markComplete{
-							background: #c6f3bf;
+							background: #d6f3e8;
 							border-radius: 25px;
 							width: 50px;
 							height: 60px;
 
 						}
 						.delete{
-							background: #efa1a1;
+							background: #ab130da1;
 							border-radius: 25px;
 							width: 50px;
 							height: 60px;
