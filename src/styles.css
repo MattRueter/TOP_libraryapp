@@ -74,6 +74,7 @@ main{
 
 	.display{
 		background-color: #ecf7f3;
+		background-image: url('Checkmark.png');
 		height:1000px;
 		width:100%;
 			display:flex;
@@ -202,14 +203,15 @@ and 'modify item box'*/
 							align-items: center;
 						}
 						.markComplete{
-							background: #d6f3e8;
+							background: #cfffed;
 							border-radius: 25px;
 							width: 50px;
 							height: 60px;
 
 						}
 						.delete{
-							background: #ab130da1;
+							background: #ffe6e5a1;
+							color:crimson;
 							border-radius: 25px;
 							width: 50px;
 							height: 60px;
