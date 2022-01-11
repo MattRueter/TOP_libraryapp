@@ -5,9 +5,9 @@ import {showAllTasks} from './DOM.js';
 export {toDoList};
 
 let toDoList = [
-	{itemTitle:'Food Shopping', folder:'General', priority:'medium',deadline:'today', completed:'',notes:'Take Victoria with you.'},
-	{itemTitle:'Cook dinner', folder: 'General', priority:'medium', deadline:'today', completed: '', notes:'make 4 servings'},
-	{itemTitle:'Lunch', folder:'Nutrition', priority:'high', deadline:'today', completed:'',notes:''}
+	{itemTitle:'Food Shopping', folder:'General', priority:'MEDIUM',deadline:'20/01/2022', completed:'',notes:'Take Victoria with you.'},
+	{itemTitle:'Cook dinner', folder: 'General', priority:'MEDIUM', deadline:'22/01/2022', completed: '', notes:'make 4 servings'},
+	{itemTitle:'Lunch', folder:'Nutrition', priority:'HIGH', deadline:'05/01/2022', completed:'',notes:''}
 
 ];
 

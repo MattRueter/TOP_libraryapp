@@ -127,6 +127,7 @@ and 'modify item box'*/
 								display:flex;
 								flex-direction: row;
 								justify-content: space-between;
+								flex-wrap:wrap;
 							
 						}
 										#title{
@@ -193,7 +194,7 @@ and 'modify item box'*/
 						width:400px;
 							display:flex;
 							flex-direction: row;
-							justify-content: space-between;
+							justify-content: flex-end;
 
 					}
 						.rightContainer > *{
@@ -201,6 +202,7 @@ and 'modify item box'*/
 							flex-direction: column;
 							justify-content: center;
 							align-items: center;
+								margin:10px;
 						}
 						.markComplete{
 							background: #cfffed;
