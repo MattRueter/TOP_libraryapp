@@ -35,14 +35,16 @@ const addTaskBtn = document.querySelector('#addItemBtn');
 		toggleAddModifyItemBox(add,'Add');
 });
 
+
+
+
 //This is used for both adding an item and modifying an existing item. (add item button OR clicking on a task calls it)
 //It 1)displays the form 
 //2)labels the button 
 //3) creates 'click' eventL's and then 
 //4)closes box &removes eventL's
 
-function toggleAddModifyItemBox(addORmodfunction,label){
-						
+function toggleAddModifyItemBox(addORmodfunction,label){			
 //makes add form box visible
 	const addItemBox = document.querySelector('.addItemBox');
 		addItemBox.classList.add('addItemBoxShow');
@@ -62,10 +64,11 @@ function toggleAddModifyItemBox(addORmodfunction,label){
 };
 
 
+
+
 //sends user input into array of 'to do items' i.e. this creates a new task from the user input.	
 function add(){			
 					
-//declare input fields for later use
 	const title = document.querySelector('#title');
 	const folder = document.querySelector('#folder');
 	const priority = document.querySelector('#priority');
@@ -84,14 +87,3 @@ function add(){
 				
 		showAllTasks();
 	};
-
-
-//In DOM file
-	//click a taskItem =>
-	//1. opens up the modify form (same as the add form)     X
-			//-fields autopopulated with taskItem info (including comments)
-			//-ADD button says 'update' or something similar 
-			//-ADD button event Listener changes to call another function.   X
-				//2. remove other EventListenr on ADD button (or do that in the function which creates it perhaps)
-				//- and clicking ADD button wil modify item in the array.
-				//- and clear/show items on the page.

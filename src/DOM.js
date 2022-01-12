@@ -13,14 +13,16 @@ const showTasks = document.querySelector('#taskBtn');
 	showTasks.addEventListener('click', () =>{
 
 		showAllTasks();
-
 	});
+
 
 function showAllTasks(){
 	
-	clearTasks();
+	clearTasks(); //to avoid duplicating list on UI
 
-	toDoList.forEach(item => {
+	toDoList.forEach(item => {  //this could be turned into a function 'toDoList' could be the argument eg function(array), 
+								//this way it could be called with const mapped from original array using 
+								//folder Keys or from the entire array as here
 		
 	const taskItem = document.createElement('div');
 		taskItem.classList.add('taskItem');
