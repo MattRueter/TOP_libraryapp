@@ -177,7 +177,7 @@ and 'modify item box'*/
 
 		}	
 			.taskItem:hover{
-				box-shadow: 0px 1px 7px #b0d1c5;
+				background-color: whitesmoke;
 			}
 					.leftContainer{
 						display:flex;

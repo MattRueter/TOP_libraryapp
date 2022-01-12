@@ -1,6 +1,7 @@
 import {toDoList} from './index.js';
+import {toggleAddModifyItemBox} from './index.js';
 export {showAllTasks};
-
+export {modify};
 const display = document.querySelector('.display');
 
 
@@ -25,7 +26,9 @@ function showAllTasks(){
 		taskItem.classList.add('taskItem');
 		display.appendChild(taskItem);
 		taskItem.addEventListener('click', () => {
-			console.log('Clicked!'); //Change this to open up details of task.
+			
+			toggleAddModifyItemBox(modify, 'modify');
+			
 		});
 
 			const leftContainer = document.createElement('div');
@@ -76,3 +79,14 @@ function clearTasks () {
 		display.removeChild(display.firstElementChild.nextElementSibling);
 	}
 }
+
+
+
+//this function is called by clicking a task. It switches the id of the add button and then switches it back a the end.
+function modify () {
+	
+		
+		console.log('clicking modify');
+		// will need to update current task item in the array.
+		//..and then display tasks in current folder
+};
