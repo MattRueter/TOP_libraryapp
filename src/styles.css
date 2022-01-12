@@ -191,7 +191,7 @@ and 'modify item box'*/
 
 								}
 					.rightContainer{
-						width:400px;
+						width:600px;
 							display:flex;
 							flex-direction: row;
 							justify-content: flex-end;
@@ -201,8 +201,10 @@ and 'modify item box'*/
 							display:flex;
 							flex-direction: column;
 							justify-content: center;
+
 							align-items: center;
 								margin:10px;
+								width: 300px;
 						}
 						.markComplete{
 							background: #cfffed;
