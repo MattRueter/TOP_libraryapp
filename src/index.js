@@ -7,9 +7,9 @@ export {toDoList};
 export {toggleAddModifyItemBox};
 
 let toDoList = [
-	{itemTitle:'Food Shopping', folder:'General', priority:'MEDIUM',deadline:'20/01/2022', completed:'',notes:'Take Victoria with you.'},
-	{itemTitle:'Cook dinner', folder: 'General', priority:'MEDIUM', deadline:'22/01/2022', completed: '', notes:'make 4 servings'},
-	{itemTitle:'Lunch', folder:'Nutrition', priority:'HIGH', deadline:'05/01/2022', completed:'',notes:''}
+	{itemTitle:'Food Shopping', folder:'General', priority:'MEDIUM',deadline:'20/01/2022', notes:'Take Victoria with you.', completed:''},
+	{itemTitle:'Cook dinner', folder: 'General', priority:'MEDIUM', deadline:'22/01/2022', notes:'make 4 servings', completed: ''},
+	{itemTitle:'Lunch', folder:'Nutrition', priority:'HIGH', deadline:'05/01/2022', notes:'', completed:''}
 
 ];
 
@@ -18,8 +18,8 @@ function taskConstructor (itemTitle,folder,priority,deadline,completed,notes) {
 	this.folder = folder;
 	this.priority = priority;
 	this.deadline = deadline;
-	this.completed = completed;
 	this.notes = notes;
+	this.completed = completed;
 
 	this.push = function(){
 	
