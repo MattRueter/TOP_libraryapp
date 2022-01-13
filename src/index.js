@@ -32,7 +32,8 @@ function taskConstructor (itemTitle,folder,priority,deadline,completed,notes) {
 const addTaskBtn = document.querySelector('#addItemBtn');
 	addTaskBtn.addEventListener('click', () => {
 		
-		toggleAddModifyItemBox(add,'Add');
+		toggleAddModifyItemBox('Add');
+		activateAddButton();
 });
 
 
@@ -44,26 +45,35 @@ const addTaskBtn = document.querySelector('#addItemBtn');
 //3) creates 'click' eventL's and then 
 //4)closes box &removes eventL's
 
-function toggleAddModifyItemBox(addORmodfunction,label){			
+
+function toggleAddModifyItemBox(label){			
 //makes add form box visible
 	const addItemBox = document.querySelector('.addItemBox');
 		addItemBox.classList.add('addItemBoxShow');
 	
-//activates and labels add/modify button correctly
+//labels add/modify button correctly
 	const addBtn = document.querySelector('#add');
-		
 		addBtn.textContent = label//labels the button correctly	
-		addBtn.addEventListener('click', addORmodfunction); //this will assign either 'add' or 'modify' to button depending on which is passed into current ().
+		
+		//addBtn.addEventListener('click', addORmodfunction); //this will assign either 'add' or 'modify' to button depending on which is passed into current ().
 
 //hides add form box & removes eventListenr on ADD button (this avoids duplicating event and allows other events to assign to it)
 	const cancelBtn = document.querySelector('#cancel');
 		cancelBtn.addEventListener('click', () => {   
 			addItemBox.classList.remove('addItemBoxShow');
-			addBtn.removeEventListener('click', addORmodfunction); //this removes the current EventListener 
+			//addBtn.removeEventListener('click', addORmodfunction); //this removes the current EventListener 
 		});	
 };
 
+function activateAddButton () {
+	const addBtn = document.querySelector('#add');
+	const cancelBtn = document.querySelector('#cancel');
 
+	addBtn.addEventListener('click', add);
+	cancelBtn.addEventListener('click', () =>{
+		addBtn.removeEventListener('click', add);
+	});
+}
 
 
 //sends user input into array of 'to do items' i.e. this creates a new task from the user input.	

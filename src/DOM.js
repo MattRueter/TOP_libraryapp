@@ -30,7 +30,9 @@ function showAllTasks(){
 		taskItem.addEventListener('click', () => {
 			
 			populateFields(Object.values(item));
-			toggleAddModifyItemBox(modify, 'modify');
+			toggleAddModifyItemBox('modify');
+			activateModifyButton ();
+			
 			
 		});
 
@@ -82,13 +84,28 @@ function clearTasks () {
 		display.removeChild(display.firstElementChild.nextElementSibling);
 	}
 }
+
+
+function activateModifyButton () {
+	const addBtn = document.querySelector('#add');
+	const cancelBtn = document.querySelector('#cancel');
+
+	addBtn.addEventListener('click', modify);
+	cancelBtn.addEventListener('click', () => {
+
+		addBtn.removeEventListener('click', modify);
+	})
+}
+
+
+
 //this function is called when clicking a task. it Populates the fields with the current task.
 function populateFields (item) {
 	const title = document.querySelector('#title');
-			const folder = document.querySelector('#folder');
-			const priority = document.querySelector('#priority');
-			const deadline = document.querySelector('#deadline');
-			const comments = document.querySelector('#comments');
+	const folder = document.querySelector('#folder');
+	const priority = document.querySelector('#priority');
+	const deadline = document.querySelector('#deadline');
+	const comments = document.querySelector('#comments');
 
 		let values = item;
 		console.log(values);
@@ -115,8 +132,11 @@ function populateFields (item) {
 //this function is called by clicking a task. It switches the id of the add button and then switches it back a the end.
 function modify () {
 	
+	console.log('calling modify from ShowAllTasks/activateBtns...');
+	
 		
-		console.log('clicking modify');
+		
 		// will need to update current task item in the array.
 		//..and then display tasks in current folder
 };
+
