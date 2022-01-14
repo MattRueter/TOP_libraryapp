@@ -28,8 +28,8 @@ function taskConstructor (itemTitle,folder,priority,deadline,completed,notes) {
 }
 
 
-const item = new taskConstructor('exercise','general','high','today','','');
-item.push();
+//const item = new taskConstructor('exercise','general','high','today','','');
+//item.push();
 
 
 
@@ -135,7 +135,7 @@ function add(){
 //This is called when 'Show All Tasks' button is clicked. It displays all tasks. (similar logic might be used to call tasks in folders DRY)
 	function showAllTasks(){
 		
-		clearTasks(); //to avoid duplicating list on UI
+		clearTasks(); 
 		
 		toDoList.forEach(item => {   
 		
@@ -144,45 +144,53 @@ function add(){
 		const taskItem = document.createElement('div');
 			taskItem.classList.add('taskItem');
 			display.appendChild(taskItem);
-			taskItem.addEventListener('click', () => {
-				
-				currentTask = item;
+		
+	
+				const leftContainer = document.createElement('div');
+				leftContainer.classList.add('leftContainer');
+				taskItem.appendChild(leftContainer);
+				leftContainer.addEventListener('click', () => {
+					currentTask = item;
 
 				populateFields(Object.values(item));
 				toggleAddModifyItemBox('modify');
 				activateModifyButton ();
-				
-				
-			});
+				})
 	
-				const leftContainer = document.createElement('div');
-				leftContainer.classList.add('.leftContainer');
-				taskItem.appendChild(leftContainer);
-	
-					const title = document.createElement('div');
-					title.classList.add('title');
-					leftContainer.appendChild(title);
-					title.textContent = item.itemTitle;
-	
-					const date = document.createElement('div');
-					date.classList.add('date');
-					leftContainer.appendChild(date);
-					date.textContent = item.deadline;
+					const leftTitleContainer = document.createElement('div');
+					leftTitleContainer.classList.add('leftLeft');
+					leftContainer.appendChild(leftTitleContainer);
+
+						const title = document.createElement('div');
+						title.classList.add('title');
+						leftTitleContainer.appendChild(title);
+						title.textContent = item.itemTitle;
+		
+						const date = document.createElement('div');
+						date.classList.add('date');
+						leftTitleContainer.appendChild(date);
+						date.textContent = item.deadline;
 				
+					const rightLabelContainer = document.createElement('div');
+					rightLabelContainer.classList.add('rightRight');
+					leftContainer.appendChild(rightLabelContainer);
+
+						const folderRef = document.createElement('div');
+						folderRef.classList.add('folderRef');
+						rightLabelContainer.appendChild(folderRef);
+						folderRef.textContent = item.folder;
+		
+					
+						const labelRef = document.createElement('div');
+						labelRef.classList.add('labelRef');
+						rightLabelContainer.appendChild(labelRef);
+						labelRef.textContent = item.priority;
+
 				const rightContainer = document.createElement('div');
 				rightContainer.classList.add('rightContainer');
 				taskItem.appendChild(rightContainer);
 	
-					const folderRef = document.createElement('div');
-					folderRef.classList.add('folderRef');
-					rightContainer.appendChild(folderRef);
-					folderRef.textContent = item.folder;
-	
-				
-					const labelRef = document.createElement('div');
-					labelRef.classList.add('labelRef');
-					rightContainer.appendChild(labelRef);
-					labelRef.textContent = item.priority;
+					
 	
 					
 					

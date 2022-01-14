@@ -6,9 +6,10 @@ import './styles.css';
 //export {toDoList};
 //export {toggleAddModifyItemBox};
 
+
 //GLOBALS (eventually reduce as much as possible)
 const display = document.querySelector('.display');
-
+let currentTask ={};
 let toDoList = [
 	{itemTitle:'Food Shopping', folder:'General', priority:'MEDIUM',deadline:'20/01/2022', notes:'Take Victoria with you.', completed:''},
 	{itemTitle:'Cook dinner', folder: 'General', priority:'MEDIUM', deadline:'22/01/2022', notes:'make 4 servings', completed: ''},
@@ -32,15 +33,12 @@ function taskConstructor (itemTitle,folder,priority,deadline,completed,notes) {
 		console.log(this.itemTitle+ ' is fun.');
 	}
 
-//	this.delete = function () {
-		
-//	}
 }
 
 
-const item = new taskConstructor('exercise','general','high','today','','');
-item.push();
-toDoList[3].modify();
+//const item = new taskConstructor('exercise','general','high','today','','');
+//item.push();
+
 
 
 ////////////////  MENU BUTTONS /////////////
@@ -84,6 +82,7 @@ function toggleAddModifyItemBox(label){
 			addItemBox.classList.remove('addItemBoxShow');
 			
 		});	
+			
 };
 
 
@@ -144,52 +143,62 @@ function add(){
 //This is called when 'Show All Tasks' button is clicked. It displays all tasks. (similar logic might be used to call tasks in folders DRY)
 	function showAllTasks(){
 		
-		clearTasks(); //to avoid duplicating list on UI
+		clearTasks(); 
+		
+		toDoList.forEach(item => {   
+		
 	
-		toDoList.forEach(item => {  //this could be turned into a function 'toDoList' could be the argument eg function(array), 
-									//this way it could be called with const mapped from original array using 
-									//folder Keys or from the entire array as here.
-			
+
 		const taskItem = document.createElement('div');
 			taskItem.classList.add('taskItem');
 			display.appendChild(taskItem);
-			taskItem.addEventListener('click', () => {
-				
+		
+	
+				const leftContainer = document.createElement('div');
+				leftContainer.classList.add('leftContainer');
+				taskItem.appendChild(leftContainer);
+				leftContainer.addEventListener('click', () => {
+					currentTask = item;
+
 				populateFields(Object.values(item));
 				toggleAddModifyItemBox('modify');
 				activateModifyButton ();
-				
-				
-			});
+				})
 	
-				const leftContainer = document.createElement('div');
-				leftContainer.classList.add('.leftContainer');
-				taskItem.appendChild(leftContainer);
-	
-					const title = document.createElement('div');
-					title.classList.add('title');
-					leftContainer.appendChild(title);
-					title.textContent = item.itemTitle;
-	
-					const date = document.createElement('div');
-					date.classList.add('date');
-					leftContainer.appendChild(date);
-					date.textContent = item.deadline;
+					const leftTitleContainer = document.createElement('div');
+					leftTitleContainer.classList.add('leftLeft');
+					leftContainer.appendChild(leftTitleContainer);
+
+						const title = document.createElement('div');
+						title.classList.add('title');
+						leftTitleContainer.appendChild(title);
+						title.textContent = item.itemTitle;
+		
+						const date = document.createElement('div');
+						date.classList.add('date');
+						leftTitleContainer.appendChild(date);
+						date.textContent = item.deadline;
 				
+					const rightLabelContainer = document.createElement('div');
+					rightLabelContainer.classList.add('rightRight');
+					leftContainer.appendChild(rightLabelContainer);
+
+						const folderRef = document.createElement('div');
+						folderRef.classList.add('folderRef');
+						rightLabelContainer.appendChild(folderRef);
+						folderRef.textContent = item.folder;
+		
+					
+						const labelRef = document.createElement('div');
+						labelRef.classList.add('labelRef');
+						rightLabelContainer.appendChild(labelRef);
+						labelRef.textContent = item.priority;
+
 				const rightContainer = document.createElement('div');
 				rightContainer.classList.add('rightContainer');
 				taskItem.appendChild(rightContainer);
 	
-					const folderRef = document.createElement('div');
-					folderRef.classList.add('folderRef');
-					rightContainer.appendChild(folderRef);
-					folderRef.textContent = item.folder;
-	
-				
-					const labelRef = document.createElement('div');
-					labelRef.classList.add('labelRef');
-					rightContainer.appendChild(labelRef);
-					labelRef.textContent = item.priority;
+					
 	
 					
 					
@@ -202,6 +211,12 @@ function add(){
 					deleteBtn.classList.add('delete');
 					rightContainer.appendChild(deleteBtn);
 					deleteBtn.textContent = 'X';
+					deleteBtn.addEventListener('click', () => {
+						
+						currentTask = item;
+						deleteTask();
+				
+					});
 		});
 	}	
 	
@@ -225,7 +240,7 @@ function add(){
 		const comments = document.querySelector('#comments');
 	
 			let values = item;
-			console.log(values);
+			//console.log(values);
 	
 	
 				title.value = values[0];
@@ -233,7 +248,8 @@ function add(){
 				priority.value =values[2];
 				deadline.value = values[3];
 				comments.value = values[4];
-	
+
+				
 				const cancelBtn = document.querySelector('#cancel');
 					cancelBtn.addEventListener('click', () => {
 				
@@ -246,15 +262,37 @@ function add(){
 					})
 	}
 	
-	//this function is called by clicking a task. It switches the id of the add button and then switches it back a the end.
+	//this function is called by clicking the modify button in the form. And makes changes to the array/then displays tasks.
 	function modify () {
+
+
+		const inputTitle = document.querySelector('#title');
+		const inputFolder = document.querySelector('#folder');
+		const inputPriority = document.querySelector('#priority');
+		const inputDeadline = document.querySelector('#deadline');
+		const inputComments = document.querySelector('#comments');
 		
-	console.log('calling modify from ShowAllTasks/activateBtns...');
-		
+	
+	currentTask.itemTitle = inputTitle.value; 
+	currentTask.folder = inputFolder.value;
+	currentTask.priority = inputPriority.value;
+	currentTask.deadline = inputDeadline.value;
+	currentTask.comments = inputComments.value; 
+
 			
+	showAllTasks();
 			
-			// will need to update current task item in the array.
-			//..and then display tasks in current folder
 	};
 	
+	function deleteTask () {
+		
+		//get the index of currentTask in toDoList and pass it below to 'splice'
+		const searchForIndex = (element) => element == currentTask;
+		const index = toDoList.findIndex(searchForIndex);
+
+		toDoList.splice(index, 1);
+		
+		showAllTasks();
+		
+	}
 	
